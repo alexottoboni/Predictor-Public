@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/send-devs.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }} - Predictor</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <h1>Select available developers</h1>
+            </div>
+            {% for dev in devs %}
+            <div class="row">
+                <label class="btn btn-primary btn-block">
+                    <input type="checkbox" autocomplete="off" value={{ dev.dev_id }}> {{ dev.name }}
+                </label>
+            </div>
+            {% endfor %}
+            <div class="row">
+                <button type="button" class="btn btn-primary btn-lg btn-block" onclick="getSelectedCheckboxes('issues', 'devs')">Choose Issues</button>
+            </div>
+        </div>
+    </body>
+</html>

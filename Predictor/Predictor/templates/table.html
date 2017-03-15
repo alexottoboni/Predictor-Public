@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/send-devs.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ title }} - Predictor</title>
+    </head>
+    <body>
+        <div class="container">
+            <table class="table">
+            <thead>
+                <tr>
+                    <th>Current Issue</th>
+                    <th>Past Issue</th>
+                    <th>Past Issue Churn</th>
+                    <th>Cosine Similarity</th>
+                    <th>Leven Similarity</th>
+                    <th>Homebrew NLP Similarity</th>
+                    <th>Score</th>
+                </tr>
+            <thead>
+            <tbody>
+            {% for key, value in mapping.iteritems() %}
+                <tr>
+                    <th>{{ current.title }}</th>
+                    <th>{{ key }}</th>
+                    <th>{{ value[0] }}</th>
+                    <th>{{ value[1] }}%</th>
+                    <th>{{ value[2] }}%</th>
+                    <th>{{ value[3] }}</th>
+                    <th>{{ value[4] }}</th>
+                </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+        </div>
+    </body>
+</html>
